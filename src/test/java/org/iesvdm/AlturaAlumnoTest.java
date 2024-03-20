@@ -88,20 +88,35 @@ public class AlturaAlumnoTest {
     }
 
     @Test
-    void calcularMaximoTest(){
+    void calcularMaximoTest1(){ // Prueba si el funcionamiento es correcto
 
-        double[] maximo= {1,5,8,3,4};
-        double[] solucion = {2,8}; // Esto es lo que deberia de devolver el metodo
+        double[] maximo= {1.1,5.87,8.5,3.6,4.1};
+        double[] solucion = {2,8.5}; // Esto es lo que deberia de devolver el metodo
         assertArrayEquals(solucion,AlturaAlumno.calculaMaximo(maximo));
+    }
+    @Test
+    void calcularMaximoTest2(){ // Prueba si le paso un array vacio, deberia devolver [0,0]
+
+        double[] array= {};
+        double[] solucion = {0,0}; // Esto es lo que deberia de devolver el metodo
+
+        assertArrayEquals(solucion,AlturaAlumno.calculaMaximo(array));
 
     }
 
     @Test
-    void calcularMediaTest(){
+    void calcularMediaTest1(){ // Prueba si funciona correctamente el metodo
 
         double[] array= {2,4,6,8,10};
-        double solucion = 6; // Esto es lo que deberia de devolver el metodo
 
-        assertEquals(solucion,AlturaAlumno.calculaMedia(array));
+        assertEquals(6,AlturaAlumno.calculaMedia(array));
+    }
+    @Test
+
+    void calcularMediaTest2(){ // Prueba de si le mandamos un array vacio.
+
+        double[] array= {};
+
+        assertEquals(0,AlturaAlumno.calculaMedia(array));
     }
 }
