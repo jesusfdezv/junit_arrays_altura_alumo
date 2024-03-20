@@ -94,10 +94,20 @@ public class AlturaAlumnoTest {
         double[] solucion = {2,8.5}; // Esto es lo que deberia de devolver el metodo
         assertArrayEquals(solucion,AlturaAlumno.calculaMaximo(maximo));
     }
+
     @Test
     void calcularMaximoTest2(){ // Prueba si le paso un array vacio, deberia devolver [0,0]
 
         double[] array= {};
+        double[] solucion = {0,0}; // Esto es lo que deberia de devolver el metodo
+
+        assertArrayEquals(solucion,AlturaAlumno.calculaMaximo(array));
+
+    }
+    @Test
+    void calcularMaximoTest3(){ // Prueba si le paso un array de longitud sin nada, deberia devolver [0,0]
+
+        double[] array= new double[3];
         double[] solucion = {0,0}; // Esto es lo que deberia de devolver el metodo
 
         assertArrayEquals(solucion,AlturaAlumno.calculaMaximo(array));
