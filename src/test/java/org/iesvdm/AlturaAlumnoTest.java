@@ -2,6 +2,8 @@ package org.iesvdm;
 
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -27,11 +29,10 @@ public class AlturaAlumnoTest {
     @Test
     void aniadeAlturaTest(){
 
-        final double[] array = new double[10];
-        array[0]=3.5;
+        double[] array = {1,2,3,4};
+        double[] nuevo = {1,2,3,4,1.5};
 
-        double[] arrayActual = AlturaAlumno.añadeAltura(array);
-
+        assertArrayEquals(nuevo,AlturaAlumno.añadeAltura(array));
 
     }
 
@@ -59,5 +60,48 @@ public class AlturaAlumnoTest {
             }
         }
 
+    }
+    @Test
+    void buscaNombreTest1(){ // Devuelve la posicion del nombre que le pasamos
+        String[] array = {"Juan","Ana","Luis"};
+        String nombre = "Ana";
+
+        assertEquals(1, AlturaAlumno.buscaNombre(array,nombre));
+    }
+    @Test
+    void buscaNombreTest2(){ // Si no encuentra el nombre deberia devolver -1
+        String[] array = {"Juan","Ana","Luis"};
+        String nombre = "Cristina";
+
+        assertEquals(-1, AlturaAlumno.buscaNombre(array,nombre));
+    }
+
+    @Test
+    void mostrarTest(){
+
+        String[] arrayNombre = {"Hugo","Ana","Ian"};
+        double[] arrayAltura = {1,2,3};
+
+       assertDoesNotThrow(() -> {
+           AlturaAlumno.mostrar(arrayNombre, arrayAltura);
+       });
+    }
+
+    @Test
+    void calcularMaximoTest(){
+
+        double[] maximo= {1,5,8,3,4};
+        double[] solucion = {2,8}; // Esto es lo que deberia de devolver el metodo
+        assertArrayEquals(solucion,AlturaAlumno.calculaMaximo(maximo));
+
+    }
+
+    @Test
+    void calcularMediaTest(){
+
+        double[] array= {2,4,6,8,10};
+        double solucion = 6; // Esto es lo que deberia de devolver el metodo
+
+        assertEquals(solucion,AlturaAlumno.calculaMedia(array));
     }
 }
